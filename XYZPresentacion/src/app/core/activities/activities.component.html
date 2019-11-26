@@ -1,0 +1,59 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+  
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <h2>Actividades</h2>
+      </div>
+  
+      <!-- Form -->
+      <form>
+        <div class="separatorContent" id="SeparatorContent1">
+          <label>Descripción</label>
+          <input type="text" id="txtDescription" class="fadeIn second" [(ngModel)]="description" name="description" placeholder="Descripción">
+          <input type="button" (click)="registerActivity()" class="fadeIn fourth" value="Crear Actividad">
+        </div>
+      </form>
+      <div class="separatorContent" id="SeparatorContent2">
+        <div class="table-responsive" *ngIf="lstActivities">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Acciones</th>
+                <th scope="col">ID</th>
+                <th scope="col">Descripción</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of lstActivities">
+                <!-- <td><a fxFlexFill [routerLink]="'/timexactivity/'+item.IdActivity" class="mat-row-link">Agregar horas</a></td> -->
+                <!-- <td><a [routerLink]="['timexactivity']" [queryParams]="{ page: item.IdActivity }">Go to Page 99</a></td> -->
+                <td><input type="submit" (click)="agregarHoras(item.IdActivity)"value="Agregar horas"></td><!--<a href="#" (click)="agregarHoras(item.IdActivity)">Agregar horas</a></td>-->
+                <td>{{ item.IdActivity }}</td>
+                <td>{{ item.Description }}</td>
+              </tr>
+            </tbody>
+          </table>
+          <nav aria-label="Page navigation example">
+              <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                  <a class="page-link" href="#" tabindex="-1">Anterior</a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="#">Siguiente</a>
+                </li>
+              </ul>
+            </nav>
+        </div>
+      </div>
+    </div>
+  </div>

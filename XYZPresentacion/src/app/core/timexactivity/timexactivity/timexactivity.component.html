@@ -1,0 +1,63 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+  
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <h2>Horas</h2>
+      </div>
+  
+      <!-- Form -->
+      <form>
+        <div class="separatorContent" id="SeparatorContent1">
+          <label>Fecha</label>
+          <input type="text" id="txtFecha" class="fadeIn second" [(ngModel)]="dateActivity" name="fecha" placeholder="dd/MM/yyyy">
+          <label>Hora</label>
+          <input type="number" id="txtHoras" class="fadeIn second" [(ngModel)]="timeWorked" name="horas" placeholder="Cantidad horas">
+          <input type="button" (click)="registerTimeXActivity()" class="fadeIn fourth" value="Agregar">
+        </div>
+      </form>
+      <div class="separatorContent" id="SeparatorContent2">
+        <div class="table-responsive" *ngIf="lsttimexactivity">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Actividad</th>
+                <th scope="col">Tiempo</th>
+                <th scope="col">Usuario</th>
+                <th scope="col">Fecha</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of lsttimexactivity">
+                <td>{{ item.IdTimeXActivity }}</td>
+                <td>{{ item.Description }}</td>
+                <td>{{ item.TimeWorked }}</td>
+                <td>{{ item.UserName }}</td>
+                <td>{{ item.DateActivity }}</td>
+              </tr>
+            </tbody>
+          </table>
+          <nav aria-label="Page navigation example">
+              <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                  <a class="page-link" href="#" tabindex="-1">Anterior</a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="#">Siguiente</a>
+                </li>
+              </ul>
+            </nav>
+        </div>
+      </div>
+    </div>
+  </div>
